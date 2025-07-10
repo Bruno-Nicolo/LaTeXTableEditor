@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" id="meta-viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="A powerful and robust LaTeX, ConTeXt, Plain TeX, PreTeXt, EPlain, Markdown, Textile, CSV and HTML Table Editor and Generator. Import data from LaTeX, Excel, LibreOffice and more.">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146982563696073"
-     crossorigin="anonymous"></script>
+	<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146982563696073"
+     crossorigin="anonymous"></script> -->
 	<title>LaTeX Tables Editor</title>
 	<link href="css.css" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,14 +36,7 @@
 
 		<div id="left-panel">
 			<div>
-
-				
-
-				<div class="alert alert-info return-to-desktop" role="alert" style="margin:3px;">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<span class="glyphicon glyphicon-info-sign"></span> <strong>Mobile.</strong> You are using a mobile rendering of our LaTeX table editor. <a href="#" onclick="table.requestDesktopSite()">Request desktop site for this session</a>.
-				</div>
-
+				<!-- BARRA SUPERIORE -->
 				<div id="mobile-bottom-menu" class="container-fluid">
 					<div class="mobile-row">
 						<div class="mobile-col" ontouchstart="table.mobileKey(1, this)" id="mobile-ctrl">Select multiple cells</div>
@@ -51,21 +44,81 @@
 						<div class="mobile-col-xs" onclick="table.prepareEmail()"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
 					</div>
 				</div>
-
+				
 				<nav class="nav-latex" id="nav-latex">
-					
+					<div class="clearfix">
+						<div style="float:left">
+							<div class="dropdown" id="top-dropdown-menu">
+								<span data-toggle="tooltip" title="Undo (CTRL+Z)" class="top-menu-btn" onclick="table.statesManager.undo()"><img src="icons/arrow-counterclockwise.svg"></span>
+								<span data-toggle="tooltip" title="Redo" class="top-menu-btn" onclick="table.statesManager.undo()"><img src="icons/arrow-clockwise.svg"></span>
+								<!-- <span data-toggle="tooltip" title="Generate" class="top-menu-btn" onclick="table.generate();"><img src="icons/play-fill.svg"></span> -->
+						<div class="dropdown" style="display:inline-block">
+							<a tabindex="-1" type="button" id="dropdownMenu1" role="button" data-target="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Import Table</a>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="dropdownMenu2">
+											<li><a href="#" onclick="table.openImportModal('latex')">LaTeX</a></li>
+											<li><a href="#" onclick="table.openImportModal('csv')">CSV</a></li>
+											<li><a href="#" onclick="$('#worksheet-dialog').modal('show')">Excel, LibreOffice, CSV files</a></li>
+											<li><a href="#" onclick="$('#pasteModal').modal('show');">Paste a table</a></li>
+											<li><a href="#" onclick="table.openImportModal('markdown')">Markdown</a></li>
+								<!-- <a class="dropdown-toggle" type="button" id="dropdownMenu1" role="button" data-target="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									File <span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="dropdownMenu2">
+									<li><a href="#" data-target="#myModal" data-toggle="modal">Create table</a></li>
+									<li class="dropdown-submenu">
+										<a tabindex="-1" href="#">Import Table</a>
+										<ul class="dropdown-menu">
+											<li><a href="#" onclick="table.openImportModal('latex')">LaTeX</a></li>
+											<li><a href="#" onclick="table.openImportModal('csv')">CSV</a></li>
+											<li><a href="#" onclick="$('#worksheet-dialog').modal('show')">Excel, LibreOffice, CSV files</a></li>
+											<li><a href="#" onclick="$('#pasteModal').modal('show');">Paste a table</a></li>
+											<li><a href="#" onclick="table.openImportModal('markdown')">Markdown</a></li>
+										</ul>
+									</li>									
+								</ul> -->
+								</div>
+								<div class="dropdown" style="display:inline-block">
+									<a href="#" class="dropdown-toggle" onclick="table.deleteContent();return false;">Delete content</a>
+									<!-- <a class="dropdown-toggle" type="button" id="dropdownMenu3" role="button" data-target="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										Table <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3" id="dropdownMenu4">
+
+<li><a href="#" onclick="table.deleteContent();return false;">Delete content</a></li>
+										
+									</ul> -->
+								</div>
+								<div class="dropdown" style="display:inline-block">
+									<a href="#" data-target="#format-settings" data-toggle="modal">Settings</a>
+									<!-- <a class="dropdown-toggle" type="button" id="dropdownMenu5" role="button" data-target="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										Output <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu5" id="dropdownMenu6">
+
+										<li><a href="#" onclick="table.generate()">Generate</a></li>
+										<li><a href="#" onclick="table.toMWE()">Convert to MWE</a></li>
+										<li class="divider"></li>
+										<li><a href="#" data-target="#format-settings" data-toggle="modal">Settings</a></li>
+									</ul> -->
+								</div>
+							</div>
+						</div>
 						
-					
+					</div>
+
+					<!-- TOOLBAR -->
 					<div class="toolbar-group-container" tabindex="0" role="toolbar">
 						<div class="toolbar-group toolbar-group-visible">
 							<div class="group-row">
+								
 								<button data-target="#myModal" data-toggle="modal" title="Create or import a new table"><img src="icons/table.svg"><span>New</span></button>
-								<div class="group-col">
-									<button data-target="#table-properties" title="Properties of the table" data-toggle="modal"><img src="icons/info-circle.svg">Properties</button>
-									<button onclick="table.openImportModal('latex')" title="Import a table from LaTeX"><img src="icons/braces.svg">Import from LaTeX</button>
-									<button onclick="$('#worksheet-dialog').modal('show')" title="Import a table from Excel or from OpenOffice Calc"><img src="icons/file-earmark-spreadsheet.svg">Load from Excel</button>
-								</div>
+								<!-- <div class="group-col"> -->
+									
+									<!-- <button onclick="table.openImportModal('latex')" title="Import a table from LaTeX"><img src="icons/braces.svg">Import from LaTeX</button>
+									<button onclick="$('#worksheet-dialog').modal('show')" title="Import a table from Excel or from OpenOffice Calc"><img src="icons/file-earmark-spreadsheet.svg">Load from Excel</button> -->
+								<!-- </div> -->
 							</div>
+							
 						</div>
 						<div class="toolbar-groups toolbar-group-visible">
 							<div class="toolbar-group">
@@ -134,9 +187,9 @@
 											<button title="Superscript" onclick="table.toggleExecCommand('superscript');return false;"><img src="icons/superscript.svg"></button>
 										</div>
 									</div>
-									<div class="group-col">
+									<!-- <div class="group-col">
 										<button title="Insert a footnote" onclick="table.insertFootnote();table.showFootnotePanel();return false;"><span><span class="glyphicon glyphicon-font"></span><span class="footnote-exp">1</span></span><span>Insert footnote</span></button>
-									</div>
+									</div> -->
 								</div>
 							</div>
 							<div class="toolbar-group">
@@ -281,33 +334,6 @@
 						</div> LaTeX environment</div>
 </div></div>
 <div style="margin:20px;">
-<!-- Before-Generate -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5146982563696073"
-     data-ad-slot="1874006957"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-				<br>
-				<div class="row">
-
-					<div class="col-md-9">
-						<textarea id="c" class="form-control">
-                        </textarea>
-						
-					</div>
-					<div class="col-md-3">
-						<div style="width:100%;max-height:20%;min-height:300px;overflow-y:auto;" id="log" class="form-control">
-							<strong>Log</strong>
-							<hr>
-						</div>
-					</div>
-				</div>
-	
 
 			<div id="right">
 				<div id="right-controler" onclick="$(document.body).toggleClass('closedPanel')">
@@ -382,7 +408,7 @@
 									</a>
 								</h4>
 							</div>
-							<div id="right_footnote" class="panel-collapse collapse" role="tabpanel">
+							<!-- <div id="right_footnote" class="panel-collapse collapse" role="tabpanel">
 								<div class="panel-body">
 									<div class="btn-group" role="group">
 										<button onclick="table.insertFootnote()" class="btn btn-default">Insert footnote</button>
@@ -390,7 +416,7 @@
 									</div>
 									<div id="footnotes-txt"></div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 
 					</div>
