@@ -39,12 +39,12 @@
 
 				
 
-				<div class="alert alert-info return-to-desktop" role="alert" style="margin:3px;">
+				<!-- <div class="alert alert-info return-to-desktop" role="alert" style="margin:3px;">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<span class="glyphicon glyphicon-info-sign"></span> <strong>Mobile.</strong> You are using a mobile rendering of our LaTeX table editor. <a href="#" onclick="table.requestDesktopSite()">Request desktop site for this session</a>.
-				</div>
+				</div> -->
 
-				<div id="mobile-bottom-menu" class="container-fluid">
+				<div id="mobile-bottom-menu" class="container-fluid" style="display: none;">
 					<div class="mobile-row">
 						<div class="mobile-col" ontouchstart="table.mobileKey(1, this)" id="mobile-ctrl">Select multiple cells</div>
 						<div class="mobile-col" ontouchstart="table.mobileKey(2, this)" id="mobile-shift">Select multiple adjacent cells</div>
@@ -61,7 +61,7 @@
 							<div class="group-row">
 								<button data-target="#myModal" data-toggle="modal" title="Create or import a new table"><img src="icons/table.svg"><span>New</span></button>
 								<div class="group-col">
-									<button data-target="#table-properties" title="Properties of the table" data-toggle="modal"><img src="icons/info-circle.svg">Properties</button>
+									<!-- <button data-target="#table-properties" title="Properties of the table" data-toggle="modal"><img src="icons/info-circle.svg">Properties</button> -->
 									<button onclick="table.openImportModal('latex')" title="Import a table from LaTeX"><img src="icons/braces.svg">Import from LaTeX</button>
 									<button onclick="$('#worksheet-dialog').modal('show')" title="Import a table from Excel or from OpenOffice Calc"><img src="icons/file-earmark-spreadsheet.svg">Load from Excel</button>
 								</div>
@@ -76,7 +76,7 @@
 											<button title="Indent" onclick="table.indentList();return false;"><img src="icons/indent.svg"></button>
 											<button title="Outdent" onclick="table.indentList(true) ;return false;"><img src="icons/outdent.svg"></button>
 											<button title="Text color" onclick="table.setTextColor(this.getAttribute('data-color'));return false;" data-color="red" id="text-color-button"><span class="glyphicon" style="border-bottom:3px solid red;padding:2px;height:auto;width:auto;font-size:1.2rem;margin-bottom:2px;" id="text-color-span"><span class="glyphicon-font"></span></span></button>
-											<button type="button" class="btn-caret dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+											<button type="button" class="btn-caret dropdown-toggle" aria-haspopup="true" aria-expanded="false" style="margin-left: -0.5em;"><span class="caret"></span></button>
 
 											<div id="font-color-picker" class="dropdown-menu" style="padding:3px;min-width:min-content;">
 												<table>
@@ -208,15 +208,26 @@
 					<hr style="margin:0;margin-bottom:2px;">
 				</nav>
 				<div class="caption-container">
-					<div class="input-group" style="max-width:400px">
-						<div class="input-group-addon">
+					<div class="input-group" style="display: flex; gap: 2.5em" >
+						<div class="input-group-addon" style="display: none;">
 							<select id="caption-nb">
 								<option value=""></option>
 								<option value="*">*</option>
 							</select>
 						</div>
-						<input id="caption" class="form-control" placeholder="Caption">
-					</div>
+						<div>
+							<label>
+							Caption:
+							<input id="caption" class="form-control" placeholder="Caption" style="border-radius: 0.5em;">
+						</label>
+						</div>
+						<div>
+							<label>
+								Label:
+								<input type="text" class="form-control" id="label" placeholder="Label" style="border-radius: 0.5em" />
+							</label>
+						</div>
+						</div>
 				</div>
 				<div id="table-div-container">
 					<table id="table">
@@ -300,12 +311,7 @@
                         </textarea>
 						
 					</div>
-					<div class="col-md-3">
-						<div style="width:100%;max-height:20%;min-height:300px;overflow-y:auto;" id="log" class="form-control">
-							<strong>Log</strong>
-							<hr>
-						</div>
-					</div>
+					
 				</div>
 	
 

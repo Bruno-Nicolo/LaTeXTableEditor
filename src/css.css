@@ -922,6 +922,7 @@ body:not([data-view-editor])
 }
 .toolbar-group .group-col,
 .toolbar-group .group-row {
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.25em;
@@ -994,9 +995,10 @@ body:not([data-view-editor])
 .toolbar-group button:not(:only-of-type) img,
 .toolbar-group button:not(:only-of-type) > .glyphicon {
   font-size: 1.4rem;
-  width: 1.4rem;
-  height: 1.4rem;
-  margin-right:0.25em;
+  margin: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  /* margin-right:0.25em; */
 }
 .toolbar-group select {
   padding: 2px !important;
