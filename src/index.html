@@ -62,8 +62,8 @@
 								<button data-target="#myModal" data-toggle="modal" title="Create or import a new table"><img src="icons/table.svg"><span>New</span></button>
 								<div class="group-col">
 									<!-- <button data-target="#table-properties" title="Properties of the table" data-toggle="modal"><img src="icons/info-circle.svg">Properties</button> -->
-									<button onclick="table.openImportModal('latex')" title="Import a table from LaTeX"><img src="icons/braces.svg">Import from LaTeX</button>
-									<button onclick="$('#worksheet-dialog').modal('show')" title="Import a table from Excel or from OpenOffice Calc"><img src="icons/file-earmark-spreadsheet.svg">Load from Excel</button>
+									<button onclick="table.openImportModal('latex')" title="Import a table from LaTeX"><img src="icons/braces.svg" style="margin-right: 0.25em;">Import from LaTeX</button>
+									<button onclick="$('#worksheet-dialog').modal('show')" title="Import a table from Excel or from OpenOffice Calc"><img src="icons/file-earmark-spreadsheet.svg" style="margin-right: 0.25em;">Load from Excel</button>
 								</div>
 							</div>
 						</div>
@@ -144,14 +144,14 @@
 									<button onclick="table.insertRowOver()" title="Insert a row over"><img src="icons/chevron-up.svg"><span>Insert over</span></button>
 									<div class="group-row">
 										<div class="group-col">
-											<button onclick="table.insertRowUnder()" title="Insert a row under"><img src="icons/chevron-down.svg">Insert under</button>
-											<button onclick="table.insertColBefore()" title="Insert a column before"><img src="icons/chevron-left.svg">Insert before</button>
-											<button onclick="table.insertColAfter()" title="Insert a column after"><img src="icons/chevron-right.svg">Insert after</button>
+											<button onclick="table.insertRowUnder()" title="Insert a row under"><img src="icons/chevron-down.svg" style="margin-right: 0.25em;">Insert under</button>
+											<button onclick="table.insertColBefore()" title="Insert a column before"><img src="icons/chevron-left.svg" style="margin-right: 0.25em;">Insert before</button>
+											<button onclick="table.insertColAfter()" title="Insert a column after"><img src="icons/chevron-right.svg" style="margin-right: 0.25em;">Insert after</button>
 										</div>
 										<div class="group-col">
 											<button onclick="table.removeRow()" title="Remove selected rows"><span class="glyphicon cross-icon"><span class="glyphicon-resize-horizontal"></span></span>Remove row</button>
 											<button onclick="table.removeCol()" title="Remove selected columns"><span class="glyphicon cross-icon"><span class="glyphicon-resize-vertical"></span></span>Remove column</button>
-											<button id="button-mode-view" title="Toggle View Mode" onclick="table.mode(table.mode() == 1 ? 0 : 1)" aria-pressed="false"><img src="icons/eye-fill.svg">View mode</button>
+											<button id="button-mode-view" title="Toggle View Mode" onclick="table.mode(table.mode() == 1 ? 0 : 1)" aria-pressed="false"><img src="icons/eye-fill.svg" style="margin-right: 0.25em;">View mode</button>
 										</div>
 									</div>
 								</div>
@@ -164,13 +164,21 @@
 
 										<div id="merge-picker" class="dropdown-menu" style="padding:3px;min-width:min-content;">
 											<div class="group-col">
-												<button onclick="table.merge('mergeHorizontal')"><img style="visibility:hidden;"> Merge cells horizontally</button>
-												<button onclick="table.merge('mergeVertical')"><img style="visibility:hidden;"> Merge cells vertically</button>
+												<button onclick="table.merge('mergeHorizontal')">
+													<!-- <img 
+													src="icons/chevron-expand.svg" style="margin-right: 0.25em;" /> -->
+													
+													Merge cells horizontally</button>
+												<button onclick="table.merge('mergeVertical')">
+													<!-- <img 
+													src="icons/chevron-expand.svg" style="margin-right: 0.25em;" />  -->
+													
+													Merge cells vertically</button>
 											</div>
 										</div>
 									</div>
-									<button onclick="table.split()" title="Split selected merged cells"><img src="icons/chevron-expand.svg" style="transform:rotate(90deg)">Split cells</button>
-									<button onclick="$('#findreplace-dialog').modal('show')" title="Find and replace text in cells"><img src="icons/find-replace.svg">Find & replace</button>
+									<button onclick="table.split()" title="Split selected merged cells"><img src="icons/chevron-expand.svg" style="transform:rotate(90deg)" style="margin-right: 0.25em;">Split cells</button>
+									<button onclick="$('#findreplace-dialog').modal('show')" title="Find and replace text in cells"><img src="icons/find-replace.svg" style="margin-right: 0.25em;">Find & replace</button>
 								</div>
 							</div>
 						</div>
@@ -178,9 +186,9 @@
 							<div class="group-row">
 								<button id="button-mode-border" title="Draw borders" onclick="table.mode(table.mode() == 2 ? 0 : 2)" aria-pressed="false"><img src="icons/pencil.svg"><span>Draw borders</span></button>
 								<div class="group-col">
-									<button id="button-booktabs" title="Toggle automatic booktabs top and bottom borders" onclick="table.autoBooktabs()" aria-pressed="false"><span class="glyphicon glyphicon-book"></span>Auto-Booktabs</button>
-									<button onclick="table.setAllBorders()" title="Add all borders to selected cells"><img src="icons/border-all.svg">Add all borders</button>
-									<button onclick="table.removeBorders()" title="Remove all border from selected cells"><img src="icons/border-none.svg">Remove all borders</button>
+									<button id="button-booktabs" title="Toggle automatic booktabs top and bottom borders" onclick="table.autoBooktabs()" aria-pressed="false"><span class="glyphicon glyphicon-book" style="margin-right: 0.25em;"></span>Auto-Booktabs</button>
+									<button onclick="table.setAllBorders()" title="Add all borders to selected cells"><img src="icons/border-all.svg" style="margin-right: 0.25em;">Add all borders</button>
+									<button onclick="table.removeBorders()" title="Remove all border from selected cells"><img src="icons/border-none.svg" style="margin-right: 0.25em;">Remove all borders</button>
 								</div>
 							</div>
 						</div>
@@ -207,7 +215,7 @@
 					</div>
 					<hr style="margin:0;margin-bottom:2px;">
 				</nav>
-				<div class="caption-container">
+				<div class="caption-container" style="margin-top: 1em; margin-bottom: 1em;">
 					<div class="input-group" style="display: flex; gap: 2.5em" >
 						<div class="input-group-addon" style="display: none;">
 							<select id="caption-nb">
@@ -246,31 +254,14 @@
 <div style="margin:0 20%;background:whitesmoke;padding:1em;border-radius:1em;">
 				<center>
 					<div class="btn-group" role="group" style="margin-bottom:25px">
-						<button onclick="table.generate()" class="btn btn-primary" data-toggle="tooltip" title="Generate code" id="generate-button">Generate</button>
-						<div class="btn-group dropdown">
+						<button onclick="table.generate()" class="btn btn-primary" data-toggle="tooltip" title="Copy Code" id="generate-button">Copy to Clipboard</button>
+						<div class="btn-group dropdown" style="display: none;">
 							<button title="Output language" type="button" id="format-btn" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LaTeX <span class="caret"></span></button>
 							<ul class="dropdown-menu" id="format-drop" style="max-height:200px;overflow-y:auto;">
-								<li class="dropdown-header">TeX</li>
 								<li data-value="latex"><a href="#">LaTeX</a></li>
 								<li data-value="context"><a href="#">ConTeXt</a></li>
 								<li data-value="plain"><a href="#">Plain TeX</a></li>
 								<li data-value="pretext"><a href="#">PreTeXt</a></li>
-								<li data-value="eplain"><a href="#">Eplain</a></li>
-								<li role="separator" class="divider"></li>
-								<li class="dropdown-header">Markup</li>
-								<li data-value="md"><a href="#">Markdown</a></li>
-								<li data-value="textile"><a href="#">Textile</a></li>
-								<li role="separator" class="divider"></li>
-								<li class="dropdown-header">Web</li>
-								<li data-value="html"><a href="#">HTML</a></li>
-								<li data-value="bbcode"><a href="#">BBCode</a></li>
-								<li data-value="wikicode"><a href="#">Wikicode</a></li>
-								<li role="separator" class="divider"></li>
-								<li class="dropdown-header">Data</li>
-								<li data-value="csv"><a href="#">CSV</a></li>
-								<li role="separator" class="divider"></li>
-								<li class="dropdown-header">Legacy formats</li>
-								<li data-value="wml"><a href="#">WML</a></li>
 							</ul>
 						</div>
 						<button title="Settings" class="btn btn-default" data-target="#format-settings" data-toggle-second="tooltip" data-toggle="modal"><span class="glyphicon glyphicon-cog"></span></button>
@@ -307,7 +298,7 @@
 				<div class="row">
 
 					<div class="col-md-9">
-						<textarea id="c" class="form-control">
+						<textarea id="c" class="form-control" style="display: none;">
                         </textarea>
 						
 					</div>
@@ -846,7 +837,7 @@
 				</div>
 				<div class="modal-body">
 
-					<select class="form-control" id="format-in" onchange="table.selectFormat(this.value)">
+					<select class="form-control" id="format-in" onchange="table.selectFormat(this.value)" style="display: none;">
 						<option value="latex">LaTeX</option>
 						<option value="context">ConTeXt</option>
 						<option value="plain">Plain TeX</option>
