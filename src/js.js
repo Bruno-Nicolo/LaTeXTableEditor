@@ -146,7 +146,6 @@ function $id(id) {
         this.loadAllFootnotes();
       };
       this.importData = function (content, format) {
-        console.log("sono qui");
         content = content || $id("import_value").value;
         format = (format || $id("import_format").value).toLowerCase();
         if (format == "auto") {
@@ -5168,11 +5167,16 @@ function $id(id) {
             .innerText.trim()
             .toLowerCase();
 
+          console.log(env);
           if (env == "auto") {
             env = this.autoLaTeXFormat();
           }
           if (env == "tabularray") {
             $id("c").value = this.generateTabularray();
+            const clipboard = this.generateTabularray();
+            navigator.clipboard.writeText(clipboard).then(() => {
+              console.log("copied to clipboard");
+            });
           } else {
             $id("c").value = this.generateLaTeX();
             const clipboard = this.generateLaTeX();
@@ -5185,11 +5189,11 @@ function $id(id) {
         }
         sendGAEvent("Code", "generate3", format);
         this.message("Generated in " + (+new Date() - start) + "ms");
-        $id("log").innerHTML =
-          "<strong>Log</strong> (" +
-          new Date().toLocaleTimeString() +
-          ")<hr>" +
-          this.log;
+        // $id("log").innerHTML =
+        //   "<strong>Log</strong> (" +
+        //   new Date().toLocaleTimeString() +
+        //   ")<hr>" +
+        //   this.log;
         if (!campaignUsed && start > +campaign.start && start < +campaign.end) {
           $("#campaignModal").modal("show");
           campaignUsed = true;
